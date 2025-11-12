@@ -35,8 +35,8 @@ const Mithun = {
 
 const resultTime = commonFunction(Kazi);
 const resultTime2 = commonFunction(Redwan);
-const resultTime3 = commonFunction(Mithun);
+//const resultTime3 = commonFunction(Mithun);
 
 console.log(resultTime);
 console.log(resultTime2);
-console.log(resultTime3);
+//console.log(resultTime3);
