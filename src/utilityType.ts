@@ -22,6 +22,10 @@ type RequiredUser = Required<User> //!using Required type. eta use krle sob gula
 
 type RecordUser = Record<string, unknown> //! using Record type. eta use kri faka object bah array neyar jonno.
 
+type ExchudeUser = Exclude<"a"|"b"|"c","a"> //! using Exchude type. ekhne jodi ekai rokom onk gula item theke thle different item gula hbe.
+
+//? type ExchudeUser = "b"| "c"
+
 
 //?  egula janle hbe kintu aro onk utility type ace.
 
