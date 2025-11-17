@@ -58,7 +58,7 @@ class person {
     this.age = age;
   }
   getDetails() {
-    return `name: ${this.name}, age: ${this.age}`;
+    return `'name: ${this.name}, age: ${this.age}'`;
   }
 }
 const person1 = new person("Redwan Labib", 23);
@@ -122,37 +122,114 @@ const filterActiveUsers = (user: Users[]): Users[] => {
 //!               Problem -5  End
 /* ==============================================*/
 
-
-
 /* ==============================================*/
 //!               Problem -6
 /* ==============================================*/
 
 interface Book {
-  title:string;
-  author:string;
-  publishedYear:number;
+  title: string;
+  author: string;
+  publishedYear: number;
   isAvailable: boolean;
 }
 
 const myBook: Book = {
-  title: 'The Great Gatsby',
-  author: 'F. Scott Fitzgerald',
+  title: "The Great Gatsby",
+  author: "F. Scott Fitzgerald",
   publishedYear: 1925,
   isAvailable: true,
 };
 const myBook2: Book = {
-  title: 'The Great Gatsby',
-  author: 'F. Scott Fitzgerald',
+  title: "The Great Gatsby",
+  author: "F. Scott Fitzgerald",
   publishedYear: 1925,
   isAvailable: false,
 };
 
+const printBookDetails = (bookItems: Book) => {
+  const isAvailableItems = bookItems.isAvailable ? "Yes" : "No";
+  console.log(
+    `Title: ${bookItems.title}, Author: ${bookItems.author}, Published: ${bookItems.publishedYear}, Available: ${isAvailableItems}`
+  );
+};
 
-const printBookDetails = (bookItems :Book)=>{
-    const isAvailableItems = bookItems.isAvailable ? "Yes" : "No";
-    console.log(`Title: ${bookItems.title}, Author: ${bookItems.author}, Published: ${bookItems.publishedYear}, Available: ${isAvailableItems}`);
-} 
+printBookDetails(myBook);
+printBookDetails(myBook2);
 
-printBookDetails(myBook)
-printBookDetails(myBook2)
+/* ==============================================*/
+//!               Problem -6 End
+/* ==============================================*/
+
+/* ==============================================*/
+//!               Problem -7
+/* ==============================================*/
+
+const array1 = [1, 2, 3, 4, 5];
+const array2 = [3, 4, 5, 6, 7];
+
+type ArrType = string | number;
+
+const getUniqueValues = (arr1: ArrType[], arr2: ArrType[]): ArrType[] => {
+  const combined: ArrType[] = [];
+  const seen: { [key: string]: boolean } = {};
+
+  const addUnique = (value: ArrType) => {
+    const key = typeof value + value;
+    if (!seen[key]) {
+      seen[key] = true;
+      combined.push(value);
+    }
+  };
+
+  for (const value of arr1) {
+    addUnique(value);
+  }
+  for (const value of arr2) {
+    addUnique(value);
+  }
+
+  return combined;
+};
+
+// console.log(getUniqueValues(array1, array2));
+
+/* ==============================================*/
+//!               Problem -7 End
+/* ==============================================*/
+
+
+/* ==============================================*/
+//!               Problem -8
+/* ==============================================*/
+
+type Product = {
+  name: string;
+  price: number;
+  quantity: number;
+  discount?: number; 
+};
+
+const products: Product[] = [
+  { name: 'Pen', price: 10, quantity: 2 },
+  { name: 'Notebook', price: 25, quantity: 3, discount: 10 },
+  { name: 'Bag', price: 50, quantity: 1, discount: 20 },
+];
+
+const calculateTotalPrice = (products: Product[]): number => {
+  return products.reduce((total, product) => {
+    const basePrice = product.price * product.quantity;
+    const discountedPrice = product.discount
+      ? basePrice - (basePrice * product.discount) / 100
+      : basePrice;
+
+    return total + discountedPrice;
+  }, 0);
+};
+
+console.log(calculateTotalPrice(products));
+
+
+
+/* ==============================================*/
+//!               Problem -8 End
+/* ==============================================*/
