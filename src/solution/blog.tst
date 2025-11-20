@@ -47,7 +47,7 @@ type Admin = {
 type AdminUser = User & Admin;
 
 const admin: AdminUser = {
-  name: "Redwan",
+  name: "labib",
   email: "redwan@example.com",
   role: "admin",
   permissions: ["read", "write"]
